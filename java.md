@@ -18,9 +18,11 @@ Java程序组成：源文件、字节码文件、机器码指令
 
 字节码和平台无关，各个平台有自己的Java Virtual Machine（在一台计算机上由软件或者硬件模拟的计算机）
 
+```
 >java Hello.java
 >javac Hello
 >hello leaf
+```
 
 一个java文件只能有一个public class定义，可以有多个class定义，编译后生成多个.class文件
 
@@ -57,6 +59,7 @@ a ++  先使用a，然后在+1
 
 {} 代码块，用的不多
 
+```
 if表达式用布尔表达式控制流程
 switch表达式不能用布尔，1.5可以用枚举，1.7可以用String
 switch (数字 | 字符 | 枚举 | String) {
@@ -72,7 +75,9 @@ switch (数字 | 字符 | 枚举 | String) {
         // to-do
     }
 }
+```
 
+```
 循环控制语句：continue、break
 while (布尔) {
     //to-do
@@ -82,13 +87,12 @@ do {
     //to-do
     //循环结束控制语句
 } while (布尔)
-
-```java
 for (int x=1;x<=9;x++) {
     for (int y=1;y<=x;y++) {
         System.out.println(x + "*" + y + "=" (x*y) + "\t");
     }
 }
+```
 
 面向对象是一种组件化的编程思想，有3大特征：继承、封装、多态
 
@@ -103,14 +107,17 @@ public      √     √     √     √
 protected   √     √     √ 
 default     √     √
 private     √
+```
 
 方法的重载：只看参数的个数和类型
 方法的重写：override
 
+```
 数组：堆内存中一块连续的内存空间
 >int[] array = new int[10];
 >int[] array = {1,2,3};
 >int[] array = new int[]{1,2,3};
+```
 
 ```java
 排序：
@@ -124,6 +131,7 @@ for (int x=0;y<array.lenght;x++) {
     }
     }
 }
+```
 
 ```java
 数组的转置：
@@ -149,6 +157,7 @@ reverse(int[] array){
     }
     return array;
 }
+```
 
 二维数组，行列式
 
@@ -157,8 +166,10 @@ System.arraycopy(原数组名称, 原数组拷贝开始索引, 目标数组名�
 数组的排序：
 Arrays.sort(数组);
 
+```
 >String s = "hello";
 >String s = new String("hello");
+```
 public String(String original)
 初始化一个新创建的 String 对象，使其表示一个与参数相同的字符序列；换句话说，新创建的字符串是该参数字符串的副本。由于 String 是不可变的，所以无需使用此构造方法，除非需要 original 的显式副本。
 
@@ -193,7 +204,7 @@ public boolean equals(Object anObject) {
         }
         return false;
 }
-
+```
 
 
 
