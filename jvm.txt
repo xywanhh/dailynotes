@@ -1,0 +1,62 @@
+```
+深入理解jvm
+
+- 历史
+- 内存结构
+- 垃圾回收机制
+- 性能监控工具
+- 性能调优
+- 类的文件结构
+- 类加载机制
+- 字节码执行引擎
+- 虚拟机编译及运行时优化
+- java线程高级
+
+JDK  Java Development Kit
+JRE  Java Runtime Environment
+JVM  Jave Virtual Machine
+
+模拟内存溢出：
+List<Demo> list = new ArrayList<Demo>();
+for(;;){
+    list.add(new Demo());
+}
+->java.lang.OutOfMemoryError: Java heap space
+在运行时生成堆栈快照：
+VM arguments:
+-XX:+HeapDumpOnOutOfMemoryError -Xmx20m -Xmx20m
+--> 
+Dumping heap to java_pid1880.hprof ...
+Heap dump file created [245425 bytes in 0.131 secs]
+利用工具来分析堆栈快照文件
+Eclipse Memory Analyzer
+file->Open Heap Dump
+
+jvm监控工具：
+/bin/jconsole.exe -->lib/tools.jar  源码
+
+>jps    -列出所有进程
+
+```
+
+```java
+class Main extends JFrame {
+    private JButton jb;
+    public Main(){
+        this.setBounds(200,200,200,200);
+        this.setTitle("lambda测试");
+        
+        jb = new JButton("click here");
+        jb.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println("click");
+            }
+        });
+        this.add(jb);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+}
+```

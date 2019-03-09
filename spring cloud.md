@@ -118,7 +118,7 @@ C:\Windows\System32\drivers\etc\hosts
 RDBMS (mysql/oracle/sqlserver) ---> ACID
 NOSQL (redis/mongdb) ---> CAP
 
-A   Atomicity   原子性
+A   Atomicity   原子性  
 C   Consistency 一致性
 I   Isolation   独立性
 D   Durability  持久性
@@ -160,7 +160,6 @@ CP  Redis,Mongodb
 
 ```
 作为服务注册中心，Eureka比Zookeeper好在哪里：
-
 Zookeeper保证CP
 当向注册中心查询服务列表时，我们可以容忍注册中心返回的是几分钟前的注册信息，但不能接受服务直接down掉不可用。也就是说，服务注册功能对于可用性的要求要高于一致性。但是zk会出现这样一种情况，当master节点因为网络故障与其他节点失去联系时，剩余节点会重新进行leader选举。问题在于，选举时间太长，30-120s，且选举期间整个zk集群都是不可用的。这就导致在选举期间注册服务瘫痪。在云部署的环境下，因网络问题使得zk集群失去master节点是大概率会发生的事，虽然服务能够最终恢复，但是漫长的选举时间导致的注册长期不可用是不能容忍的。
 
@@ -221,7 +220,7 @@ Ribbon其实就是一个软负载均衡的客户端组件，它可以和其他�
 
 Ribbon在工作的时候分2步：
 1.先选择Eureka Server，优先选择在同一区域内负载较少的server
-2.再根据用户指定的策略，比如轮询，随机和根据响应时间加权
+2.再根据用户指定的策略，比如轮询，随机和根据响应时间加权，从server服务注册列表中选取一个服务地址访问
 
 Ribbon的核心组件IRule
 IRule: 根据特定的算法从服务列表中选取一个要访问的服务：
